@@ -1,0 +1,282 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* CSS for Tabs */
+      .tabset > input[type="radio"] {
+        position: absolute;
+        left: -200vw;
+      }
+
+      .tabset .tab-panel {
+        display: none;
+      }
+
+      .tabset
+        > input:first-child:checked
+        ~ .tab-panels
+        > .tab-panel:first-child,
+      .tabset
+        > input:nth-child(3):checked
+        ~ .tab-panels
+        > .tab-panel:nth-child(2),
+      .tabset
+        > input:nth-child(5):checked
+        ~ .tab-panels
+        > .tab-panel:nth-child(3),
+      .tabset
+        > input:nth-child(7):checked
+        ~ .tab-panels
+        > .tab-panel:nth-child(4),
+      .tabset
+        > input:nth-child(9):checked
+        ~ .tab-panels
+        > .tab-panel:nth-child(5),
+      .tabset
+        > input:nth-child(11):checked
+        ~ .tab-panels
+        > .tab-panel:nth-child(6) {
+        display: block;
+      }
+
+      body {
+        font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
+        color: #333;
+        font-weight: 300;
+      }
+
+      .tabset > label {
+        position: relative;
+        display: inline-block;
+        padding: 15px 15px 25px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .tabset > label:hover,
+      .tabset > input:focus + label {
+        color: #3776cf;
+      }
+
+      .tabset > label:hover::after,
+      .tabset > input:focus,
+      .tabset > input:checked {
+        color: #3776cf;
+      }
+
+      .tabset > input:checked + label {
+        border-bottom: 3px solid #3776cf;
+      }
+
+      /* CSS for collapse */
+      .avatar img {
+        border-radius: 50%;
+      }
+
+      .user {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-bottom: 2px solid #ececec;
+        padding: 10px 10px;
+      }
+
+      .details {
+        margin-left: 20px;
+      }
+      .details .name {
+        margin-bottom: 10px;
+        font-size: 22px;
+        font-weight: bold;
+      }
+
+      .details span:not(:first-child) {
+        margin-left: 20px;
+      }
+
+      .handle label img {
+        width: 20px;
+      }
+
+      .accordion > input[type="checkbox"] {
+        position: absolute;
+        left: -100vw;
+      }
+
+      .accordion .content {
+        overflow-y: hidden;
+        height: 0;
+        transition: height 0.3s ease;
+      }
+
+      .accordion > input[type="checkbox"]:checked ~ .content {
+        height: auto;
+        overflow: visible;
+      }
+
+      .accordion label {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .accordion .handle {
+        margin: 0;
+        font-size: 1.125em;
+        line-height: 1.2em;
+      }
+
+      .accordion label {
+        cursor: pointer;
+        font-weight: normal;
+        padding: 15px;
+      }
+
+      .accordion .handle1 {
+        color: #ae6624;
+        background: #f7cb9c;
+      }
+      .accordion .handle2 {
+        color: #981619;
+        background: #e99998;
+      }
+
+      .accordion > input[type="checkbox"]:checked ~ .handle label img {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+
+      /* Additional CSS */
+      body {
+        font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
+        color: #333;
+        font-weight: 300;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tabset">
+      <!-- Tab 1 -->
+      <input type="radio" name="tabset" id="tab1" checked="checked" />
+      <label for="tab1">Not Approved (5)</label>
+      <!-- Tab 2 -->
+      <input type="radio" name="tabset" id="tab2" />
+      <label for="tab2">Approved (25)</label>
+
+      <div class="tab-panels">
+        <section id="approved" class="tab-panel">
+          <section class="accordion">
+            <input
+              type="checkbox"
+              name="collapse"
+              id="handle1"
+              checked="checked"
+            />
+            <h2 class="handle">
+              <label for="handle1" class="handle1">
+                Finished, not approved (2)
+                <img
+                  src="https://cdn0.iconfinder.com/data/icons/arrows-android-l-lollipop-icon-pack/24/expand2-16.png"
+                  alt="arrow"
+                />
+              </label>
+            </h2>
+            <div class="content">
+              <div class="user">
+                <div class="avatar">
+                  <img src="https://via.placeholder.com/70" alt="Avatar" />
+                </div>
+                <div class="details">
+                  <div class="name">Adam Baker</div>
+                  <div class="hours">
+                    <span>168h</span>
+                    <span>80h</span>
+                    <span>22h</span>
+                  </div>
+                </div>
+              </div>
+              <div class="user">
+                <div class="avatar">
+                  <img src="https://via.placeholder.com/70" alt="Avatar" />
+                </div>
+                <div class="details">
+                  <div class="name">Lynn Smith</div>
+                  <div class="hours">
+                    <span>168h</span>
+                    <span>80h</span>
+                    <span>22h</span>
+                  </div>
+                </div>
+              </div>
+              <div class="user">
+                <div class="avatar">
+                  <img src="https://via.placeholder.com/70" alt="Avatar" />
+                </div>
+                <div class="details">
+                  <div class="name">John Doe</div>
+                  <div class="hours">
+                    <span>168h</span>
+                    <span>80h</span>
+                    <span>22h</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="accordion">
+            <input
+              type="checkbox"
+              name="collapse2"
+              id="handle2"
+              checked="checked"
+            />
+            <h2 class="handle">
+              <label for="handle2" class="handle2"
+                >Not Finished (3)
+                <img
+                  src="https://cdn0.iconfinder.com/data/icons/arrows-android-l-lollipop-icon-pack/24/expand2-16.png"
+                  alt="arrow"
+              /></label>
+            </h2>
+            <div class="content">
+              <div class="user">
+                <div class="avatar">
+                  <img src="https://via.placeholder.com/70" alt="Avatar" />
+                </div>
+                <div class="details">
+                  <div class="name">Bobby Miles</div>
+                  <div class="hours">
+                    <span>168h</span>
+                    <span>80h</span>
+                    <span>22h</span>
+                  </div>
+                </div>
+              </div>
+              <div class="user">
+                <div class="avatar">
+                  <img src="https://via.placeholder.com/70" alt="Avatar" />
+                </div>
+                <div class="details">
+                  <div class="name">Cane Brown</div>
+                  <div class="hours">
+                    <span>168h</span>
+                    <span>80h</span>
+                    <span>22h</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section id="notApproved" class="tab-panel">
+          <h3>Approved Tab Data</h3>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
