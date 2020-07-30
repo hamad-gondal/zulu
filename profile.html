@@ -1,0 +1,216 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* CSS for collapse */
+      .avatar img {
+        border-radius: 50%;
+      }
+
+      .user {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 15px;
+        position: relative;
+      }
+
+      .user:not(:last-child):after {
+        position: absolute;
+        content: "";
+        border-bottom: 2px dotted #d2d7da;
+        width: 90%;
+        transform: translateX(-50%);
+        bottom: 0;
+        left: 50%;
+      }
+
+      .details {
+        margin-left: 20px;
+      }
+
+      .details .name {
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: normal;
+      }
+
+      .details .hours {
+        color: #717171;
+        font-size: 13px;
+      }
+
+      .details span:not(:first-child) {
+        margin-left: 15px;
+      }
+
+      .handle label img {
+        width: 20px;
+      }
+
+      .accordion > input[type="checkbox"] {
+        position: absolute;
+        left: -100vw;
+      }
+
+      .accordion .content {
+        overflow-y: hidden;
+        height: 0;
+        transition: height 0.3s ease;
+      }
+
+      .accordion > input[type="checkbox"]:checked ~ .content {
+        height: auto;
+        overflow: visible;
+      }
+
+      .accordion .handle {
+        margin: 0;
+        font-size: 1.125em;
+        line-height: 1.2em;
+      }
+
+      .accordion label {
+        cursor: pointer;
+        font-weight: bold;
+        padding: 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .accordion > input[type="checkbox"]:checked ~ .handle label img {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+
+      .finished-card {
+        border-left: 5px solid #ee9515;
+      }
+
+      .not-finished-card {
+        border-left: 5px solid #dd5966;
+      }
+
+      .approved-card {
+        border-left: 5px solid #71aa24;
+      }
+
+      .finished {
+        color: #ee9515;
+        border-color: #ee9515;
+      }
+
+      .not-finished {
+        color: #dd5966;
+        border-color: #dd5966;
+      }
+
+      .approved {
+        color: #71aa24;
+        border-color: #dd5966;
+      }
+
+      .user-arrow {
+        -webkit-transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        -o-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        transform: rotate(270deg);
+        position: absolute;
+        right: 4%;
+      }
+
+      .counter {
+        font-size: 13px;
+        border: 2px solid;
+        position: absolute;
+        right: 70px;
+        border-radius: 20px;
+        padding: 0 10px;
+      }
+
+      /* card css */
+      .card {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+
+      /* Additional CSS */
+      body {
+        font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
+        color: #333;
+        font-weight: 300;
+      }
+
+      /* user prfile css */
+      .user-details {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+
+      .nav-left {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+
+      .nav-right {
+        -webkit-transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        -o-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        transform: rotate(270deg);
+      }
+
+      .align-item {
+        text-align: center;
+      }
+      .user-profile {
+        padding: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="user-profile card not-finished-card">
+      <div class="user-details">
+        <div class="nav-left">
+          <img
+            src="https://cdn0.iconfinder.com/data/icons/arrows-android-l-lollipop-icon-pack/24/expand2-16.png"
+            alt="arrow"
+          />
+        </div>
+        <div class="avatar">
+          <img src="https://via.placeholder.com/100" alt="Avatar" />
+        </div>
+        <div class="nav-right">
+          <img
+            src="https://cdn0.iconfinder.com/data/icons/arrows-android-l-lollipop-icon-pack/24/expand2-16.png"
+            alt="arrow"
+          />
+        </div>
+      </div>
+      <div class="align-item">
+        <div class="user-name"><h3>John Doe</h3></div>
+        <div class="user-code"><p>Att. Kod: AVD1</p></div>
+      </div>
+      <div class="balances"></div>
+      <div class="action-buttons align-item">
+        <button type="button">Click Me!</button>
+        <button type="button">Click Me!</button>
+        <button type="button">Click Me!</button>
+      </div>
+    </div>
+  </body>
+</html>
